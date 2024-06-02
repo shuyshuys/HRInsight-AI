@@ -275,10 +275,6 @@ def resume():
     # Provide a simple UI to upload a resume
     return render_template("index.html")
 
-# @app.route('/hope', methods=['GET'])
-# def hope():
-#     return render_template("form.html")
-
 @app.route('/privacy-policy')
 def privacy_policy():
     return render_template('privacy-policy.html')
@@ -312,6 +308,6 @@ def pred():
                                phone=phone,email=email,extracted_skills=extracted_skills,extracted_education=extracted_education)
     else:
         return render_template("index.html", message="No resume file uploaded.")
-
+    
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port='22215', host='0.0.0.0')
