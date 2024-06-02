@@ -4,7 +4,7 @@
 git pull
 
 # Check if the virtual environment exists
-if [ ! -d "env" ]; then
+if [ ! -d "venv" ]; then
   # Create the virtual environment
   python3 -m venv venv
 fi
