@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html dir="ltr" class="landing-pages" lang="en">
+<link type="text/css" id="dark-mode" rel="stylesheet" href="">
+<style type="text/css" id="dark-mode-custom-style"></style>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hope UI | Responsive Bootstrap 5 Admin Dashboard Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://templates.iqonic.design/hope-ui/html/dist/assets/images/favicon.ico">
+
+    <!-- Library / Plugin Css Build -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-page_files/libs.min.css') }}">
+
+
+    <!-- Hope Ui Design System Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-page_files/hope-ui.min.css') }}">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-page_files/custom.min.css') }}">
+
+    <!-- Dark Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-page_files/dark.min.css') }}">
+
+    <!-- Customizer Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-page_files/customizer.min.css') }}">
+
+    <!-- RTL Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-page_files/rtl.min.css') }}">
+
+
+    <!-- SwiperSlider css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-page_files/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-page_files/landing-pages.min.css') }}">
+    <style class="fslightbox-styles">
+        .fslightbox-absoluted {
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+
+        .fslightbox-fade-in {
+            animation: fslightbox-fade-in .3s cubic-bezier(0, 0, .7, 1)
+        }
+
+        .fslightbox-fade-out {
+            animation: fslightbox-fade-out .3s ease
+        }
+
+        .fslightbox-fade-in-strong {
+            animation: fslightbox-fade-in-strong .3s cubic-bezier(0, 0, .7, 1)
+        }
+
+        .fslightbox-fade-out-strong {
+            animation: fslightbox-fade-out-strong .3s ease
+        }
+
+        @keyframes fslightbox-fade-in {
+            from {
+                opacity: .65
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fslightbox-fade-out {
+            from {
+                opacity: .35
+            }
+
+            to {
+                opacity: 0
+            }
+        }
+
+        @keyframes fslightbox-fade-in-strong {
+            from {
+                opacity: .3
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fslightbox-fade-out-strong {
+            from {
+                opacity: 1
+            }
+
+            to {
+                opacity: 0
+            }
+        }
+
+        .fslightbox-cursor-grabbing {
+            cursor: grabbing
+        }
+
+        .fslightbox-full-dimension {
+            width: 100%;
+            height: 100%
+        }
+
+        .fslightbox-open {
+            overflow: hidden;
+            height: 100%
+        }
+
+        .fslightbox-flex-centered {
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .fslightbox-opacity-0 {
+            opacity: 0 !important
+        }
+
+        .fslightbox-opacity-1 {
+            opacity: 1 !important
+        }
+
+        .fslightbox-scrollbarfix {
+            padding-right: 17px
+        }
+
+        .fslightbox-transform-transition {
+            transition: transform .3s
+        }
+
+        .fslightbox-container {
+            font-family: Arial, sans-serif;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(rgba(30, 30, 30, .9), #000 1810%);
+            touch-action: pinch-zoom;
+            z-index: 1000000000;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .fslightbox-container * {
+            box-sizing: border-box
+        }
+
+        .fslightbox-svg-path {
+            transition: fill .15s ease;
+            fill: #ddd
+        }
+
+        .fslightbox-nav {
+            height: 45px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+
+        .fslightbox-slide-number-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100%;
+            font-size: 15px;
+            color: #d7d7d7;
+            z-index: 0;
+            max-width: 55px;
+            text-align: left
+        }
+
+        .fslightbox-slide-number-container .fslightbox-flex-centered {
+            height: 100%
+        }
+
+        .fslightbox-slash {
+            display: block;
+            margin: 0 5px;
+            width: 1px;
+            height: 12px;
+            transform: rotate(15deg);
+            background: #fff
+        }
+
+        .fslightbox-toolbar {
+            position: absolute;
+            z-index: 3;
+            right: 0;
+            top: 0;
+            height: 100%;
+            display: flex;
+            background: rgba(35, 35, 35, .65)
+        }
+
+        .fslightbox-toolbar-button {
+            height: 100%;
+            width: 45px;
+            cursor: pointer
+        }
+
+        .fslightbox-toolbar-button:hover .fslightbox-svg-path {
+            fill: #fff
+        }
+
+        .fslightbox-slide-btn-container {
+            display: flex;
+            align-items: center;
+            padding: 12px 12px 12px 6px;
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            z-index: 3;
+            transform: translateY(-50%)
+        }
+
+        @media (min-width:476px) {
+            .fslightbox-slide-btn-container {
+                padding: 22px 22px 22px 6px
+            }
+        }
+
+        @media (min-width:768px) {
+            .fslightbox-slide-btn-container {
+                padding: 30px 30px 30px 6px
+            }
+        }
+
+        .fslightbox-slide-btn-container:hover .fslightbox-svg-path {
+            fill: #f1f1f1
+        }
+
+        .fslightbox-slide-btn {
+            padding: 9px;
+            font-size: 26px;
+            background: rgba(35, 35, 35, .65)
+        }
+
+        @media (min-width:768px) {
+            .fslightbox-slide-btn {
+                padding: 10px
+            }
+        }
+
+        @media (min-width:1600px) {
+            .fslightbox-slide-btn {
+                padding: 11px
+            }
+        }
+
+        .fslightbox-slide-btn-container-previous {
+            left: 0
+        }
+
+        @media (max-width:475.99px) {
+            .fslightbox-slide-btn-container-previous {
+                padding-left: 3px
+            }
+        }
+
+        .fslightbox-slide-btn-container-next {
+            right: 0;
+            padding-left: 12px;
+            padding-right: 3px
+        }
+
+        @media (min-width:476px) {
+            .fslightbox-slide-btn-container-next {
+                padding-left: 22px
+            }
+        }
+
+        @media (min-width:768px) {
+            .fslightbox-slide-btn-container-next {
+                padding-left: 30px
+            }
+        }
+
+        @media (min-width:476px) {
+            .fslightbox-slide-btn-container-next {
+                padding-right: 6px
+            }
+        }
+
+        .fslightbox-down-event-detector {
+            position: absolute;
+            z-index: 1
+        }
+
+        .fslightbox-slide-swiping-hoverer {
+            z-index: 4
+        }
+
+        .fslightbox-invalid-file-wrapper {
+            font-size: 22px;
+            color: #eaebeb;
+            margin: auto
+        }
+
+        .fslightbox-video {
+            object-fit: cover
+        }
+
+        .fslightbox-youtube-iframe {
+            border: 0
+        }
+
+        .fslightbox-loader {
+            display: block;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 67px;
+            height: 67px
+        }
+
+        .fslightbox-loader div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 54px;
+            height: 54px;
+            margin: 6px;
+            border: 5px solid;
+            border-color: #999 transparent transparent transparent;
+            border-radius: 50%;
+            animation: fslightbox-loader 1.2s cubic-bezier(.5, 0, .5, 1) infinite
+        }
+
+        .fslightbox-loader div:nth-child(1) {
+            animation-delay: -.45s
+        }
+
+        .fslightbox-loader div:nth-child(2) {
+            animation-delay: -.3s
+        }
+
+        .fslightbox-loader div:nth-child(3) {
+            animation-delay: -.15s
+        }
+
+        @keyframes fslightbox-loader {
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        .fslightbox-source {
+            position: relative;
+            z-index: 2;
+            opacity: 0
+        }
+    </style>
+</head>
+
+<body class=" body-bg landing-pages">
+    <span class="screen-darken"></span>
+    <!-- loader-Start -->
+    <div id="loading">
+        <div class="loader simple-loader animate__animated animate__fadeOut d-none">
+            <div class="loader-body">
+            </div>
+        </div>
+    </div>
+    <!-- loader-END -->
+    <!-- Wrapper-start -->
+    <main class="main-content">
+        <div class="position-relative">
+            <!-- Nav-Start -->
+            <nav class="nav navbar navbar-expand-xl navbar-light iq-navbar header-hover-menu">
+                <div class="container-fluid navbar-inner">
+                    <div class="d-flex align-items-center justify-content-between w-100 landing-header">
+                        <a href="/" class="navbar-brand m-0 d-xl-flex d-none">
+                            <!--Logo start-->
+
+                            <!--logo End-->
+                            <h5 class="logo-title">HRInsight-AI</h5>
+                        </a>
+                        <div class="d-flex align-items-center d-xl-none">
+                            <button data-trigger="navbar_main" class="d-xl-none btn btn-primary rounded-pill p-1 pt-0"
+                                type="button">
+                                <svg width="20px" class="icon-20" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z">
+                                    </path>
+                                </svg>
+                            </button>
+
+                            <a href="/" class="navbar-brand ms-3  d-xl-none">
+                                <!--Logo start-->
+                                <!--logo End-->
+                                <h5 class="logo-title">HRInsight-AI</h5>
+                            </a>
+                        </div>
+                        <ul class="d-block d-xl-none list-unstyled m-0">
+                            <li class="nav-item dropdown iq-responsive-menu ">
+                                <div class="btn btn-sm bg-body" id="navbarDropdown-search-11" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+                                        <path d="M18.0186 18.4851L21.5426 22" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown-search-11"
+                                    style="width: 18rem;">
+                                    <li class="px-3 py-0">
+                                        <div class="form-group input-group mb-0">
+                                            <input type="text" class="form-control" placeholder="Search...">
+                                            <span class="input-group-text">
+                                                <svg class="icon-20" width="20" height="20" viewBox="0 0 24 24"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor"
+                                                        stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></circle>
+                                                    <path d="M18.0186 18.4851L21.5426 22" stroke="currentColor"
+                                                        stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- Horizontal Menu Start -->
+                        <nav id="navbar_main"
+                            class="mobile-offcanvas nav navbar navbar-expand-xl hover-nav horizontal-nav">
+                            <div class="container-fluid p-lg-0">
+                                <div class="offcanvas-header px-0">
+                                    <a href="/" class="navbar-brand ms-3  d-xl-none">
+                                        <!--Logo start-->
+                                        <!--logo End-->
+                                        <h5 class="logo-title">HRInsight-AI</h5>
+                                    </a>
+                                    <button class="btn-close float-end px-3"></button>
+                                </div>
+                                <ul class="navbar-nav iq-nav-menu  list-unstyled" id="header-menu">
+                                    <li class="nav-item"><a class="nav-link " href="/app">Try Free </a></li>
+                                    <!-- https://templates.iqonic.design/hope-ui/html/dist/landing-pages/about.html -->
+                                    <li class="nav-item"><a class="nav-link " href="#pricing">Pricing</a></li>
+                                    <li class="nav-item"><a class="nav-link " href="#about-us">Our Teams</a></li>
+                                    <!-- <li class="nav-item"><a class="nav-link" href="/faq">Faq</a></li> -->
+                                    <!-- https://templates.iqonic.design/hope-ui/html/dist/landing-pages/faq.html -->
+                                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                                    <!-- https://templates.iqonic.design/hope-ui/html/dist/landing-pages/contact-us.html -->
+                                </ul>
+                            </div> <!-- container-fluid.// -->
+                        </nav>
+                        <!-- Sidebar Menu End -->
+                    </div>
+                </div>
+            </nav> <!--Nav-End-->
+        </div>
+        <div class="banner-one-app">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 banner-one-img text-center ms-2 ms-sm-0">
+                        <img src="{{ url_for('static', filename='landing-page_files/banner-top.webp') }}" alt=""
+                            class="img-fluid ">
+                    </div>
+                    <div class="col-sm-6 inner-box">
+                        <p class="mb-2 text-uppercase text-secondary">
+                            Temukan Kandidat Tepat dengan Cepat dan Mudah
+                        </p>
+                        <h1 class="text-secondary mb-4"><span class="text-primary">InsightHR<br></span> AI Screening
+                            Resume
+                        </h1>
+                        <p class="mb-5">InsightHR menghadirkan solusi Deteksi Screening Resume berbasis AI untuk
+                            membantu HR seperti Anda menemukan kandidat ideal mulai dari GRATIS. </p>
+                        <div class="d-flex align-items-center store-btn">
+                            <a href="/app" class="btn btn-primary">Try Free</a>
+                            <a href="#pricing" class="btn btn-secondary ms-3">Buy Subscription</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-secondary features-card">
+            <div class="container">
+                <div class="row mx-2 mx-sm-0">
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6 top-feature">
+                        <div class="text-right">
+                            <p class="mb-2 text-white text-uppercase">Why HopeUI rocks</p>
+                            <h2 class="mb-3 text-white notch-feature-txt">Top Notch Features </h2>
+                            <p class="mb-5 text-white pb-5">It is a long established fact that a reader will be
+                                distracted by
+                                the readable content of a page when looking at its layout. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-sm-2 row-cols-lg-4">
+                    <div class="col">
+                        <div class="card services-box  rounded-1">
+                            <div class="card-body">
+                                <h4 class="mb-3">400+ UI Components</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                <svg width="12" height="13" viewBox="0 0 12 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5.45109 0.343108L5.46396 1.36387L10.0063 1.42104L0.0568434 11.3704L0.787737 12.1013L10.7371 2.15194L10.7943 6.6942L11.8151 6.70706L11.736 0.422159L5.45109 0.343108Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card services-box  rounded-1">
+                            <div class="card-body">
+                                <h4 class="mb-3">Refreshing<br> Design</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                <svg width="12" height="13" viewBox="0 0 12 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5.45109 0.343108L5.46396 1.36387L10.0063 1.42104L0.0568434 11.3704L0.787737 12.1013L10.7371 2.15194L10.7943 6.6942L11.8151 6.70706L11.736 0.422159L5.45109 0.343108Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card services-box  rounded-1">
+                            <div class="card-body">
+                                <h4 class="mb-3">Universal UI Toolkit</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                <svg width="12" height="13" viewBox="0 0 12 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5.45109 0.343108L5.46396 1.36387L10.0063 1.42104L0.0568434 11.3704L0.787737 12.1013L10.7371 2.15194L10.7943 6.6942L11.8151 6.70706L11.736 0.422159L5.45109 0.343108Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <div class="card services-box  rounded-1">
+                            <div class="card-body">
+                                <h4 class="mb-3">Fully<br> Responsive</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                <svg width="12" height="13" viewBox="0 0 12 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5.45109 0.343108L5.46396 1.36387L10.0063 1.42104L0.0568434 11.3704L0.787737 12.1013L10.7371 2.15194L10.7943 6.6942L11.8151 6.70706L11.736 0.422159L5.45109 0.343108Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-card-padding  bg-white">
+            <div class="container">
+                <div class="row align-items-center" id="pricing">
+                    <div class="col-lg-4">
+                        <p class="mb-2 text-secondary text-uppercase">
+                            Pricing
+                        </p>
+                        <h2 class="text-secondary mb-4">Our <span class="text-primary">Price<br> Plans</span></h2>
+                        <p class="mb-4">InsightHR menawarkan berbagai paket langganan yang sesuai dengan kebutuhan
+                            bisnis dari semua ukuran.</p>
+                        <a href="/app" class="btn btn-primary mt-2">Try Free</a>
+                    </div>
+                    <div class="col-lg-8 mt-4 mt-lg-0">
+                        <div class="row iq-star-inserted row-cols-1 row-cols-md-2 row-cols-lg-2 text-center">
+                            <div class="col iq-star-inserted-2">
+                                <div class="card shadow-lg my-5">
+                                    <div class="card-body">
+                                        <h5 class="my-0 fw-normal mb-4">Basic</h5>
+                                        <h4 class="card-title pricing-card-title mb-0 text-primary mb-4">Rp
+                                            125.000<small class="text-secondary"> / month</small></h4>
+                                        <p class="mb-4">Billed Monthly</p>
+                                        <!-- <p>$169.99 Billed Monthly</p> -->
+                                        <ul class="list-unstyled my-3 p-0">
+                                            <li class="mb-4">50 Resume Checking</li>
+                                            <li class="mb-4">Standard Email support</li>
+                                            <li class="mb-4">Help center access</li>
+                                            <li>
+                                                <p>Help center access</p>
+                                            </li>
+                                        </ul>
+                                        <button type="button" class="btn btn-primary w-100">Get Started</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col iq-star-inserted-3">
+                                <div class="card my-5">
+                                    <div class="card-body page-bg">
+                                        <h5 class="my-0 fw-normal mb-4">Premium</h5>
+                                        <h4 class="card-title pricing-card-title mb-0 text-primary mb-4">Rp
+                                            250.000<small class="text-secondary"> / month</small></h4>
+                                        <p class="">Billed Monthly</p>
+                                        <!-- <p>$169.9 Billed Monthly</p> -->
+                                        <ul class="list-unstyled my-3 p-0">
+                                            <li class="mb-3">Unlimited Resume Checking</li>
+                                            <li class="mb-3">Priority Email support</li>
+                                            <li class="mb-3">Call and email support</li>
+                                            <li class="mb-3">Help center access</li>
+                                            <li>Help center access</li>
+                                        </ul>
+                                        <button type="button" class="btn btn-primary w-100">Get Started</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="section-padding ">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                    <div class="col">
+                        <img src="{{ url_for('static', filename='landing-page_files/01.webp') }}" alt=""
+                            class="img-fluid ">
+                    </div>
+                    <div class="col">
+                        <img src="{{ url_for('static', filename='landing-page_files/02.webp') }}" alt=""
+                            class="img-fluid ">
+                    </div>
+                    <div class="col">
+                        <img src="{{ url_for('static', filename='landing-page_files/03.webp') }}" alt=""
+                            class="img-fluid ">
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="section-card-padding bg-white">
+            <div class="container">
+                <div class="row align-items-center" id="about-us">
+                    <div class="col-md-12 text-center">
+                        <p class="mb-2 text-uppercase text-secondary">
+                            <!-- team -->
+                        </p>
+                        <h2 class="text-secondary mb-4">Expert <span class="text-primary">Teams</span></h2>
+                    </div>
+                    <div class="col-md-3 col-sm-2">
+                        <div class="card team-image">
+                            <img src="{{ url_for('static', filename='landing-page_files/129.jpeg') }}"
+                                alt="team-details" class="img-fluid rounded-top" loading="lazy">
+                            <div class="card-body">
+                                <h6 class="my-2">Ahmad Yazid Isnandar</h6>
+                                <p class="mb-0">Founder (CEO)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-2">
+                        <div class="card team-image">
+                            <img src="{{ url_for('static', filename='landing-page_files/team2.webp') }}"
+                                alt="team-details" class="img-fluid rounded-top" loading="lazy">
+                            <div class="card-body">
+                                <h6 class="my-2">Ridho Tegar</h6>
+                                <p class="mb-0">Sales dan Marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-2">
+                        <div class="card team-image">
+                            <img src="{{ url_for('static', filename='landing-page_files/team-3.webp') }}"
+                                alt="team-details" class="img-fluid rounded-top" loading="lazy">
+                            <div class="card-body">
+                                <h6 class="my-2">Febri Anggraini</h6>
+                                <p class="mb-0">Hustler</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-2">
+                        <div class="card team-image">
+                            <img src="{{ url_for('static', filename='landing-page_files/team-3.webp') }}"
+                                alt="team-details" class="img-fluid rounded-top" loading="lazy">
+                            <div class="card-body">
+                                <h6 class="my-2">Dinar Sabrina</h6>
+                                <p class="mb-0">UI Design & Operasional</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-padding bg-white">
+            <div class="container">
+                <div class="row align-items-center text-center row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
+                    <div class="col mb-lg-0 mb-4">
+                        <h2 class=" mb-2 counter">3</h2>
+                        <h6>Best Designer Award</h6>
+                    </div>
+                    <div class="col mb-lg-0 mb-4">
+                        <h2 class=" mb-2 counter">50+</h2>
+                        <h6>Loyal Clients</h6>
+                    </div>
+                    <div class="col">
+                        <h2 class=" mb-2 counter">158+</h2>
+                        <h6>Nominee Awards</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inner-box bg-secondary">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 justify-content-center ">
+                    <div class="col mb-md-0 mb-5 d-flex justify-content-center">
+                        <img src="{{ url_for('static', filename='landing-page_files/07.webp') }}" alt="client-details"
+                            class="img-fluid client-img" loading="lazy">
+                    </div>
+                    <div class="col mb-md-0 mb-5 d-flex justify-content-center">
+                        <img src="{{ url_for('static', filename='landing-page_files/08.webp') }}" alt="client-details"
+                            class="img-fluid client-img" loading="lazy">
+                    </div>
+                    <div class="col mb-md-0 mb-5 d-flex justify-content-center">
+                        <img src="{{ url_for('static', filename='landing-page_files/09.webp') }}" alt="client-details"
+                            class="img-fluid client-img" loading="lazy">
+                    </div>
+                    <div class="col mb-md-0 mb-5 d-flex justify-content-center">
+                        <img src="{{ url_for('static', filename='landing-page_files/10.webp') }}" alt="client-details"
+                            class="img-fluid client-img" loading="lazy">
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <img src="{{ url_for('static', filename='landing-page_files/11.webp') }}" alt="client-details"
+                            class="img-fluid client-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-padding">
+            <div class="container">
+                <div class="row align-items-center text-center">
+                    <div class="col-lg-12">
+                        <p class="mb-4 text-uppercase text-secondary">Testimony</p>
+                        <h2 class="text-secondary customer-txt">What our <span class="text-primary">Customer’s <br> are
+                                saying</span></h2>
+                    </div>
+                    <div class="overflow-hidden slider-circle-btn swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
+                        id="testimonial-slider">
+                        <ul class="p-0 m-0 swiper-wrapper list-inline" id="swiper-wrapper-2c4810871008932885"
+                            aria-live="polite">
+                            <li class="swiper-slide swiper-slide-active" style="width: 1124px; margin-right: 32px;"
+                                role="group" aria-label="1 / 5">
+
+                                <svg width="98" height="99" class="mt-5" viewBox="0 0 98 99" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M65.1171 0.5H93.4687L97.4572 8.44811L65.2733 98.5H50.2545L65.1171 0.5ZM14.9113 0.5H42.7957L46.7842 8.44811L14.6003 98.5H-0.415726L14.9113 0.5Z"
+                                        stroke="#3A57E8"></path>
+                                </svg>
+                                <p class="mt-4 test-text">Torquatos nec eu, detr
+                                    periculis ex, nihil
+                                    expetendis in mei. Mei an pericula euripidis.hinc partem ei est. Eos ei
+                                    nisl
+                                    graecis, vix aperiri
+                                    consequat an. Eius lorem tincidunt vix at, vel pertinax sensibus id,
+                                    error
+                                    epicurei mea. Mea
+                                    facilisis urbanitas.Torquatos nec eu, detr periculis ex, nihil
+                                    expetendis in
+                                    mei.</p>
+                                <h6 class="">Elsa Schmidt</h6>
+                                <p class="mb-0 text-primary">Spa</p>
+                            </li>
+                            <li class="swiper-slide swiper-slide-next" style="width: 1124px; margin-right: 32px;"
+                                role="group" aria-label="2 / 5">
+
+                                <svg width="98" height="99" class="mt-5" viewBox="0 0 98 99" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M65.1171 0.5H93.4687L97.4572 8.44811L65.2733 98.5H50.2545L65.1171 0.5ZM14.9113 0.5H42.7957L46.7842 8.44811L14.6003 98.5H-0.415726L14.9113 0.5Z"
+                                        stroke="#3A57E8"></path>
+                                </svg>
+                                <p class="mt-4 test-text">Torquatos nec eu, detr
+                                    periculis ex, nihil
+                                    expetendis in mei. Mei an pericula euripidis.hinc partem ei est. Eos ei
+                                    nisl
+                                    graecis, vix aperiri
+                                    consequat an. Eius lorem tincidunt vix at, vel pertinax sensibus id,
+                                    error
+                                    epicurei mea. Mea
+                                    facilisis urbanitas.Torquatos nec eu, detr periculis ex, nihil
+                                    expetendis in
+                                    mei.</p>
+                                <h6 class="">Elsa Schmidt</h6>
+                                <p class="mb-0 text-primary">Spa</p>
+                            </li>
+                            <li class="swiper-slide" style="width: 1124px; margin-right: 32px;" role="group"
+                                aria-label="3 / 5">
+
+                                <svg width="98" height="99" class="mt-5" viewBox="0 0 98 99" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M65.1171 0.5H93.4687L97.4572 8.44811L65.2733 98.5H50.2545L65.1171 0.5ZM14.9113 0.5H42.7957L46.7842 8.44811L14.6003 98.5H-0.415726L14.9113 0.5Z"
+                                        stroke="#3A57E8"></path>
+                                </svg>
+                                <p class="mt-4 test-text">Torquatos nec eu, detr
+                                    periculis ex, nihil
+                                    expetendis in mei. Mei an pericula euripidis.hinc partem ei est. Eos ei
+                                    nisl
+                                    graecis, vix aperiri
+                                    consequat an. Eius lorem tincidunt vix at, vel pertinax sensibus id,
+                                    error
+                                    epicurei mea. Mea
+                                    facilisis urbanitas.Torquatos nec eu, detr periculis ex, nihil
+                                    expetendis in
+                                    mei.</p>
+                                <h6 class="">Elsa Schmidt</h6>
+                                <p class="mb-0 text-primary">Spa</p>
+                            </li>
+                            <li class="swiper-slide" style="width: 1124px; margin-right: 32px;" role="group"
+                                aria-label="4 / 5">
+
+                                <svg width="98" height="99" class="mt-5" viewBox="0 0 98 99" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M65.1171 0.5H93.4687L97.4572 8.44811L65.2733 98.5H50.2545L65.1171 0.5ZM14.9113 0.5H42.7957L46.7842 8.44811L14.6003 98.5H-0.415726L14.9113 0.5Z"
+                                        stroke="#3A57E8"></path>
+                                </svg>
+                                <p class="mt-4 test-text">Torquatos nec eu, detr
+                                    periculis ex, nihil
+                                    expetendis in mei. Mei an pericula euripidis.hinc partem ei est. Eos ei
+                                    nisl
+                                    graecis, vix aperiri
+                                    consequat an. Eius lorem tincidunt vix at, vel pertinax sensibus id,
+                                    error
+                                    epicurei mea. Mea
+                                    facilisis urbanitas.Torquatos nec eu, detr periculis ex, nihil
+                                    expetendis in
+                                    mei.</p>
+                                <h6 class="">Elsa Schmidt</h6>
+                                <p class="mb-0 text-primary">Spa</p>
+                            </li>
+                            <li class="swiper-slide" style="width: 1124px; margin-right: 32px;" role="group"
+                                aria-label="5 / 5">
+
+                                <svg width="98" height="99" class="mt-5" viewBox="0 0 98 99" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M65.1171 0.5H93.4687L97.4572 8.44811L65.2733 98.5H50.2545L65.1171 0.5ZM14.9113 0.5H42.7957L46.7842 8.44811L14.6003 98.5H-0.415726L14.9113 0.5Z"
+                                        stroke="#3A57E8"></path>
+                                </svg>
+                                <p class="mt-4 test-text">Torquatos nec eu, detr
+                                    periculis ex, nihil
+                                    expetendis in mei. Mei an pericula euripidis.hinc partem ei est. Eos ei
+                                    nisl
+                                    graecis, vix aperiri
+                                    consequat an. Eius lorem tincidunt vix at, vel pertinax sensibus id,
+                                    error
+                                    epicurei mea. Mea
+                                    facilisis urbanitas.Torquatos nec eu, detr periculis ex, nihil
+                                    expetendis in
+                                    mei.</p>
+                                <h6 class="">Elsa Schmidt</h6>
+                                <p class="mb-0 text-primary">Spa</p>
+                            </li>
+                        </ul>
+                        <div class="swiper-button swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
+                            aria-controls="swiper-wrapper-2c4810871008932885" aria-disabled="false"></div>
+                        <div class="swiper-button swiper-button-prev swiper-button-disabled" tabindex="-1" role="button"
+                            aria-label="Previous slide" aria-controls="swiper-wrapper-2c4810871008932885"
+                            aria-disabled="true"></div>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Wrapper-End -->
+    <!-- Footer-start -->
+    <footer>
+        <div class="bg-secondary inner-box ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="/" class="navbar-brand  d-flex align-items-center">
+                            <svg class="icon-30 text-primary" width="30" viewBox="0 0 30 30" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2"
+                                    transform="rotate(-45 -0.757324 19.2427)" fill="currentColor"></rect>
+                                <rect x="7.72803" y="27.728" width="28" height="4" rx="2"
+                                    transform="rotate(-45 7.72803 27.728)" fill="currentColor"></rect>
+                                <rect x="10.5366" y="16.3945" width="16" height="4" rx="2"
+                                    transform="rotate(45 10.5366 16.3945)" fill="currentColor"></rect>
+                                <rect x="10.5562" y="-0.556152" width="28" height="4" rx="2"
+                                    transform="rotate(45 10.5562 -0.556152)" fill="currentColor"></rect>
+                            </svg>
+                            <h4 class="logo-title ms-3 text-white">HRInsight-AI</h4>
+                        </a>
+                        <p class="text-white my-4">InsightHR menghadirkan solusi Deteksi Screening Resume berbasis AI
+                            untuk membantu HR seperti Anda menemukan kandidat ideal mulai dari GRATIS. </p>
+                        <div class="d-flex align-items-center mb-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 6V22L8 18L16 22L23 18V2L16 6L8 2L1 6Z" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M16 6V22" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M8 2V18" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                            <p class="ms-4 mb-0 text-white">Project Captone, Kelompok 15<br> BISA AI - MBKM Batch 6</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 15.9201V18.9201C21.0011 19.1986 20.9441 19.4743 20.8325 19.7294C20.7209 19.9846 20.5573 20.2137 20.3521 20.402C20.1468 20.5902 19.9046 20.7336 19.6407 20.8228C19.3769 20.912 19.0974 20.9452 18.82 20.9201C15.7428 20.5857 12.787 19.5342 10.19 17.8501C7.77382 16.3148 5.72533 14.2663 4.18999 11.8501C2.49997 9.2413 1.44824 6.27109 1.11999 3.1801C1.095 2.90356 1.12787 2.62486 1.21649 2.36172C1.30512 2.09859 1.44756 1.85679 1.63476 1.65172C1.82196 1.44665 2.0498 1.28281 2.30379 1.17062C2.55777 1.05843 2.83233 1.00036 3.10999 1.0001H6.10999C6.5953 0.995321 7.06579 1.16718 7.43376 1.48363C7.80173 1.80008 8.04207 2.23954 8.10999 2.7201C8.23662 3.68016 8.47144 4.62282 8.80999 5.5301C8.94454 5.88802 8.97366 6.27701 8.8939 6.65098C8.81415 7.02494 8.62886 7.36821 8.35999 7.6401L7.08999 8.9101C8.51355 11.4136 10.5864 13.4865 13.09 14.9101L14.36 13.6401C14.6319 13.3712 14.9751 13.1859 15.3491 13.1062C15.7231 13.0264 16.1121 13.0556 16.47 13.1901C17.3773 13.5286 18.3199 13.7635 19.28 13.8901C19.7658 13.9586 20.2094 14.2033 20.5265 14.5776C20.8437 14.9519 21.0122 15.4297 21 15.9201Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                            <p class="ms-4 mb-0 text-white">(xxx) xxx-xxxx</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 mt-md-0 mt-4">
+                        <h5 class="mb-4 text-white">Links</h5>
+                        <ul class="m-0 p-0 list-unstyled text-white">
+                            <li class="mb-3">About us</li>
+                            <li class="mb-3">Features</li>
+                            <li class="mb-3">Reviews</li>
+                            <li>Team</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 mt-md-0 mt-4">
+                        <h5 class="mb-4 text-white">Help</h5>
+                        <ul class="m-0 p-0 list-unstyled text-white">
+                            <li class="mb-3">My Account</li>
+                            <li class="mb-3">Returns &amp; Refunds</li>
+                            <li class="mb-3">Payment Policy</li>
+                            <li>FAQ</li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom bg-secondary ">
+            <div class="container border-top  py-4 border-primary">
+                <div class="row">
+                    <div class="col-md-12 text-center text-white">
+                        <p class="mb-0">©
+                            <script type="text/javascript">document.write(new Date().getFullYear())</script> HRInsight,
+                            All Rights Reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> <!-- Footer-end -->
+    <div id="back-to-top" style="display: none;" class="animate__animated animate__fadeOut">
+        <a class="p-0 btn btn-primary btn-sm position-fixed top" id="top" href="#top">
+            <svg class="icon-30" width="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 15.5L12 8.5L19 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+        </a>
+    </div>
+
+    <!-- offcanvas start -->
+    <!-- Library Bundle Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/libs.min.js') }}" type="text/javascript"></script>
+
+    <!-- External Library Bundle Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/external.min.js') }}"
+        type="text/javascript"></script>
+
+    <!-- Widgetchart Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/widgetcharts.js') }}"
+        type="text/javascript"></script>
+
+    <!-- mapchart Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/vectore-chart.js') }}"
+        type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='landing-page_files/dashboard.js') }}" type="text/javascript"></script>
+
+    <!-- fslightbox Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/fslightbox.js') }}" type="text/javascript"></script>
+
+    <!-- Settings Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/setting.js') }}" type="text/javascript"></script>
+
+    <!-- Slider-tab Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/slider-tabs.js') }}" type="text/javascript"></script>
+
+    <!-- Form Wizard Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/form-wizard.js') }}" type="text/javascript"></script>
+
+    <!-- AOS Animation Plugin-->
+
+    <!-- App Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/hope-ui.js') }}" defer="defer"
+        type="text/javascript"></script>
+
+
+    <!-- SwiperSlider Script -->
+    <script src="{{ url_for('static', filename='landing-page_files/swiper-bundle.min.js') }}"
+        type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='landing-page_files/app-landing.js') }}" defer="defer"
+        type="text/javascript"></script>
+
+    <svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xlink="http://www.w3.org/1999/xlink" svgjs="http://svgjs.dev"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1002"></defs>
+        <polyline id="SvgjsPolyline1003" points="0,0"></polyline>
+        <path id="SvgjsPath1004" d="M0 0 "></path>
+    </svg>
+</body>
+
+</html>

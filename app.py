@@ -53,8 +53,7 @@ import re
 def ekstrak_no_telp(text):
     contact_number = None
 
-    # Use regex pattern to find a potential contact number
-    #pattern = r"\b(?:\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b"
+    # Menggunakan pola regex untuk mengambil nomor telepon
     pattern = r'(\+62\s?[\d\s-]{10,13}|0[\d\s-]{10,13})'
     match = re.search(pattern, text)
     if match:
@@ -64,7 +63,7 @@ def ekstrak_no_telp(text):
 def ekstrak_email(text):
     email = None
 
-    # Use regex pattern to find a potential email address
+    # Menggunakan pola regex untuk menemukan alamat email
     pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
     match = re.search(pattern, text)
     if match:
@@ -219,12 +218,6 @@ def ekstrak_edukasi(text):
 
     return education
 
-def extract_first_sentence(text):
-    # Split text into sentences
-    sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', text)
-    # Return the first sentence
-    return sentences[0]
-
 # Fungsi untuk memeriksa apakah kata ada di KBBI
 def is_in_kbbi(word):
     try:
@@ -232,45 +225,13 @@ def is_in_kbbi(word):
         return True
     except:
         return False
-
-# def ekstrak_nama(text):
-    # Extract the first sentence
-    # first_sentence = text
-    # Regular expression patterns for detecting names
-    # pattern_all_uppercase = r"\b[A-Z][A-Z]+\b"
-    # pattern_first_uppercase = r"\b[A-Z][a-z]+\b"
-    # name = None
-
-    # Use regex pattern to find a potential name
-    # pattern = r"(\b[A-Z][a-z]+\b)\s(\b[A-Z][a-z]+\b)"
-    # pattern = r"\b[A-Z][a-z]+(?: [A-Z][a-z]+)?\b"
-    # pattern = r"\b[A-Z][a-z]+(?: [A-Z][a-z]+)?(?: [A-Z][a-z]+)?\b"
-    # pattern = r"\b[A-Z]{2,4}(?:\s[A-Z]{2,4}){1,3}\b"
-    # pattern = r"\b[A-Z][a-z]+(?:\s[A-Z][a-z]+){1,3}\b"
-
-    # match = re.search(pattern, text)
-    # if match:
-    #     name = match.group()
-
-    # Find potential names in the first sentence
-    # matches_all_uppercase = re.findall(pattern_all_uppercase, first_sentence)
-    # matches_first_uppercase = re.findall(pattern_first_uppercase, first_sentence)
     
-    # Combine potential names from both patterns
-    # potential_names = matches_all_uppercase + matches_first_uppercase
-
-    # names = [potential_names for potential_names in potential_names if not is_in_kbbi(potential_names)]
-    
-    # return names
-
-    # return text
-
-
-
-
-# routes===============================================
-
+# Routes
 @app.route('/')
+def landing_page():
+    return render_template('landing-page.html')
+
+@app.route('/app')
 def resume():
     # Provide a simple UI to upload a resume
     return render_template("index.html")
